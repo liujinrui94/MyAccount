@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import com.ljr.jizhang.framework.widget.BaseProgressDialog;
 import com.ljr.jizhang.utils.AppLogger;
 
+import org.xutils.x;
+
 import nucleus.presenter.Presenter;
 import nucleus.view.NucleusSupportFragment;
 
@@ -27,7 +29,7 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
                              Bundle savedInstanceState) {
         initView();
         initData();
-        return super.onCreateView(inflater, container, savedInstanceState);
+        return x.view().inject(this, inflater, container);
     }
 
     protected abstract void initData();
