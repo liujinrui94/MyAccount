@@ -67,7 +67,7 @@ public class MainActivity extends BaseActivity<MainPresenter> {
     }
     public void replaceAccount(List<Account> list) {
 //        mBaseRecyclerAdapter.refresh(list);
-//        Log.e("AAAAAA",list+"");
+        Log.e("AAAAAA",list+"");
     }
 
     @Override
