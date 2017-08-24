@@ -1,0 +1,42 @@
+<resources>
+
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/ActivityAnimation</item>
+        <item name="android:windowSoftInputMode">adjustUnspecified|stateHidden</item>
+        <item name="android:configChanges">orientation|keyboardHidden|screenSize</item>
+    </style>
+
+
+    <!--Activity Animation-->
+    <style name="ActivityAnimation" parent="@android:style/Animation.Activity">
+        <item name="android:activityOpenEnterAnimation">@anim/activity_into_from_right</item>
+        <item name="android:activityOpenExitAnimation">@anim/activity_out_to_left</item>
+        <item name="android:activityCloseEnterAnimation">@anim/activity_into_from_left</item>
+        <item name="android:activityCloseExitAnimation">@anim/activity_out_to_right</item>
+    </style>
+
+
+    <!--common dialog theme-->
+    <style name="CommonDialog" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">true</item>
+    </style>
+
+
+    <!--progress dialog theme-->
+    <style name="BaseProgressDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="colorAccent">@color/colorPrimary</item>
+    </style>
+</resources>
