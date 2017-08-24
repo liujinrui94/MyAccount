@@ -1,4 +1,4 @@
-package com.ljr.jizhang.presenter;
+package com.ljr.jizhang.ui.presenter;
 
 import com.ljr.jizhang.bean.Account;
 import com.ljr.jizhang.dao.DaoSession;

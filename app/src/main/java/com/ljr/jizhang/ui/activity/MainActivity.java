@@ -7,12 +7,10 @@ import com.ljr.jizhang.R;
 import com.ljr.jizhang.bean.Account;
 import com.ljr.jizhang.framework.base.BaseActivity;
 import com.ljr.jizhang.framework.base.BaseRecyclerAdapter;
-import com.ljr.jizhang.framework.base.SmartViewHolder;
 import com.ljr.jizhang.framework.refreshlayout.SmartRefreshLayout;
 import com.ljr.jizhang.framework.refreshlayout.api.RefreshLayout;
 import com.ljr.jizhang.framework.refreshlayout.listener.OnRefreshListener;
-import com.ljr.jizhang.presenter.MainPresenter;
-import com.ljr.jizhang.utils.ToastUtils;
+import com.ljr.jizhang.ui.presenter.MainPresenter;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;

@@ -39,4 +39,31 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
+
+
+    <!-- 主页的tab样式 -->
+    <style name="MyTabButton">
+        <!-- 水平居中 -->
+        <item name="android:gravity">center</item>
+        <!-- 字体样式 -->
+        <item name="android:textAppearance">@style/tab_home_font_bg</item>
+        <item name="android:button">@null</item>
+        <item name="android:background">@mipmap/ic_tab_bottom_bg</item>
+    </style>
+    <!-- 程序主页的tab字体样式 -->
+    <style name="tab_home_font_bg">
+        <!-- 字体颜色 -->
+        <item name="android:textColor">@drawable/selector_tab_menu_text_color</item>
+        <!-- 字体加粗 -->
+        <item name="android:textStyle">normal</item>
+        <!-- 字体大小 -->
+        <item name="android:textSize">14.0sp</item>
+        <!-- 文字过长的省略显示 -->
+        <item name="android:ellipsize">marquee</item>
+        <!-- 当文本不能正常现实的时候后面用..表示 -->
+        <item name="android:singleLine">true</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+
 </resources>
