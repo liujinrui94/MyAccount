@@ -25,16 +25,21 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        initView();
-        initData();
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+
         return x.view().inject(this, inflater, container);
     }
 
+    @Override
+    public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(v, savedInstanceState);
+        initView();
+        initData();
+    }
+    protected abstract void initView();
     protected abstract void initData();
 
-    protected abstract void initView();
+
 
     /**
      * 显示加载对话框

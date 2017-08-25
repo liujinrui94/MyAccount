@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import com.ljr.jizhang.dao.DaoMaster;
 import com.ljr.jizhang.dao.DaoSession;
 import com.ljr.jizhang.dao.MyOpenHelper;
+import com.ljr.jizhang.service.LocationService;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 import org.xutils.x;
@@ -24,6 +25,7 @@ public class AppApplication extends Application {
     public static AppApplication instance;
 
     public Stack<BaseActivity> allActivitys = new Stack<>();
+    public LocationService locationService;
 
     private MyOpenHelper mHelper;
     private SQLiteDatabase db;
@@ -38,6 +40,7 @@ public class AppApplication extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        locationService = new LocationService(getApplicationContext());
         x.Ext.init(this);
         x.Ext.setDebug(false);
         setDatabase();

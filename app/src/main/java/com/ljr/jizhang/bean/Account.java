@@ -25,6 +25,8 @@ public class Account {
 
     private String clientPhone;//客户联系方式
 
+    private String projectStatus;//当前状态
+
     public String getClientPhone() {
         return this.clientPhone;
     }
@@ -73,30 +75,31 @@ public class Account {
         this.id = id;
     }
 
-    @Generated(hash = 607206542)
+    public String getProjectStatus() {
+        return this.projectStatus;
+    }
+
+    public void setProjectStatus(String projectStatus) {
+        this.projectStatus = projectStatus;
+    }
+
+    @Generated(hash = 1652049831)
     public Account(Long id, String clientName, String projectName,
-            long projectDate, String projectLocation, String clientPhone) {
+            long projectDate, String projectLocation, String clientPhone,
+            String projectStatus) {
         this.id = id;
         this.clientName = clientName;
         this.projectName = projectName;
         this.projectDate = projectDate;
         this.projectLocation = projectLocation;
         this.clientPhone = clientPhone;
+        this.projectStatus = projectStatus;
     }
 
     @Generated(hash = 882125521)
     public Account() {
     }
 
-    @Override
-    public String toString() {
-        return "Account{" +
-                "id=" + id +
-                ", clientName='" + clientName + '\'' +
-                ", projectName='" + projectName + '\'' +
-                ", projectDate=" + projectDate +
-                ", projectLocation='" + projectLocation + '\'' +
-                ", clientPhone='" + clientPhone + '\'' +
-                '}';
-    }
+
+
 }

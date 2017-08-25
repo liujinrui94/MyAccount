@@ -30,6 +30,7 @@ public class AccountDao extends AbstractDao<Account, Long> {
         public final static Property ProjectDate = new Property(3, long.class, "projectDate", false, "PROJECT_DATE");
         public final static Property ProjectLocation = new Property(4, String.class, "projectLocation", false, "PROJECT_LOCATION");
         public final static Property ClientPhone = new Property(5, String.class, "clientPhone", false, "CLIENT_PHONE");
+        public final static Property ProjectStatus = new Property(6, String.class, "projectStatus", false, "PROJECT_STATUS");
     };
 
 
@@ -50,7 +51,8 @@ public class AccountDao extends AbstractDao<Account, Long> {
                 "\"PROJECT_NAME\" TEXT," + // 2: projectName
                 "\"PROJECT_DATE\" INTEGER NOT NULL ," + // 3: projectDate
                 "\"PROJECT_LOCATION\" TEXT," + // 4: projectLocation
-                "\"CLIENT_PHONE\" TEXT);"); // 5: clientPhone
+                "\"CLIENT_PHONE\" TEXT," + // 5: clientPhone
+                "\"PROJECT_STATUS\" TEXT);"); // 6: projectStatus
     }
 
     /** Drops the underlying database table. */
@@ -88,6 +90,11 @@ public class AccountDao extends AbstractDao<Account, Long> {
         if (clientPhone != null) {
             stmt.bindString(6, clientPhone);
         }
+ 
+        String projectStatus = entity.getProjectStatus();
+        if (projectStatus != null) {
+            stmt.bindString(7, projectStatus);
+        }
     }
 
     @Override
@@ -119,6 +126,11 @@ public class AccountDao extends AbstractDao<Account, Long> {
         if (clientPhone != null) {
             stmt.bindString(6, clientPhone);
         }
+ 
+        String projectStatus = entity.getProjectStatus();
+        if (projectStatus != null) {
+            stmt.bindString(7, projectStatus);
+        }
     }
 
     @Override
@@ -134,7 +146,8 @@ public class AccountDao extends AbstractDao<Account, Long> {
             cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // projectName
             cursor.getLong(offset + 3), // projectDate
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // projectLocation
-            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5) // clientPhone
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // clientPhone
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6) // projectStatus
         );
         return entity;
     }
@@ -147,6 +160,7 @@ public class AccountDao extends AbstractDao<Account, Long> {
         entity.setProjectDate(cursor.getLong(offset + 3));
         entity.setProjectLocation(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
         entity.setClientPhone(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setProjectStatus(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
      }
     
     @Override

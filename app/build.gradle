@@ -18,12 +18,32 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    signingConfigs {
+        release {
+            storeFile file("liujinrui.jks")//keystore的路径
+            storePassword "liujinrui"
+            keyAlias "account"
+            keyPassword "liujinrui"
+        }
+//        debug {
+//            storeFile file('debug.keystore')
+//            storePassword "android"
+//            keyAlias "androiddebugkey"
+//            keyPassword "android"
+//        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
 }
 greendao {
     schemaVersion 1
     //版本号
     targetGenDir 'src/main/java'    //生成DaoMaster类文件夹
-    daoPackage 'com.ljr.jizhang.db'  //生成DaoMaster类包名
+    daoPackage 'com.ljr.jizhang.dao'  //生成DaoMaster类包名
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
