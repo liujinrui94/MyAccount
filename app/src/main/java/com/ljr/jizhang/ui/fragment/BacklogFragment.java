@@ -1,5 +1,7 @@
 package com.ljr.jizhang.ui.fragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +20,7 @@ import com.ljr.jizhang.framework.refreshlayout.SmartRefreshLayout;
 import com.ljr.jizhang.framework.refreshlayout.api.RefreshLayout;
 import com.ljr.jizhang.framework.refreshlayout.listener.OnRefreshListener;
 import com.ljr.jizhang.service.LocationService;
+import com.ljr.jizhang.ui.activity.AddAccountInfoActivity;
 import com.ljr.jizhang.ui.activity.TabMainActivity;
 import com.ljr.jizhang.ui.presenter.BacklogPresenter;
 import com.ljr.jizhang.utils.AnimationUtil;
@@ -55,6 +58,19 @@ public class BacklogFragment extends BaseFragment<BacklogPresenter> {
 
 
     @Override
+    protected void initView() {
+        radioGroup = (RadioGroup) getActivity().findViewById(R.id.tab_main_radio_group);
+        baseRecyclerAdapter = new BaseRecyclerAdapter<Account>(accountList, R.layout.item_account) {
+            @Override
+            protected void onBindViewHolder(SmartViewHolder holder, Account model, int position) {
+
+            }
+        };
+
+
+    }
+
+    @Override
     protected void initData() {
         smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
@@ -65,17 +81,19 @@ public class BacklogFragment extends BaseFragment<BacklogPresenter> {
 
     }
 
+
     @Event({R.id.fragment_backlog_fab_attention_button})
     private void doOnClick(View view) {
+        Intent mIntent = null;
         switch (view.getId()) {
             case R.id.fragment_backlog_fab_attention_button:
-
-                addAnimation(radioGroup);
+                mIntent = new Intent(getmContext(), AddAccountInfoActivity.class);
                 break;
-
-
+            default:
+                ToastUtils.getInstance().showShortToast(getResources().getString(R.string.keying_error));
+                break;
         }
-
+        startActivity(mIntent);
     }
 
     private void addAnimation(RadioGroup radiogroup) {
@@ -89,26 +107,10 @@ public class BacklogFragment extends BaseFragment<BacklogPresenter> {
     }
 
 
-    @Override
-    protected void initView() {
-        radioGroup = (RadioGroup) getActivity().findViewById(R.id.tab_main_radio_group);
-        baseRecyclerAdapter = new BaseRecyclerAdapter<Account>(accountList, R.layout.item_account) {
-            @Override
-            protected void onBindViewHolder(SmartViewHolder holder, Account model, int position) {
-
-            }
-        };
-
-
-    }
-
-
-
     public void replaceAccount(List<Account> list) {
         baseRecyclerAdapter.refresh(list);
 
     }
-
 
 
 }

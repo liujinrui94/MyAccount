@@ -34,7 +34,7 @@ public class MainActivity extends BaseActivity<MainPresenter> {
 
     @Override
     protected void initView() {
-        initToolbar("首页", this, true);
+        initToolbar("首页", true);
         onRefresh();
 
 //        mBaseRecyclerAdapter= new BaseRecyclerAdapter<Account>(listAccount,R.layout.item_account) {

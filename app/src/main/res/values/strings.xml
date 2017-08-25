@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">Account</string>
+    <string name="app_name">项目记录</string>
+    <string name="keying_error">按键错误，请重试！！！</string>
 </resources>

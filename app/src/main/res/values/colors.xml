@@ -4,12 +4,12 @@
     <color name="colorPrimaryDark">#0079ff</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="btn_round_grey">#7c7c7c</color>
     <!-- 底部菜单蓝色 -->
     <color name="tab_blue">#0079ff</color>
     <!-- 底部菜单灰色 -->
     <color name="tab_grey">#7c7c7c</color>
 
-    <color name="bg_whitecolour">#FF4081</color>
     <color name="black">#000000</color>
 
     <color name="grayTextColor">#777777</color>

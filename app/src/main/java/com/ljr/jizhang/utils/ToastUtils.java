@@ -27,7 +27,13 @@ public class ToastUtils
 		}
 		return toastUtil;
 	}
-
+	public  void showShortToast(String msg) {
+		if (toast != null) {
+			toast.cancel();
+		}
+		toast = Toast.makeText(context, msg, Toast.LENGTH_SHORT);
+		toast.show();
+	}
 	
 	public void showMiddleToast(String content)
 	{

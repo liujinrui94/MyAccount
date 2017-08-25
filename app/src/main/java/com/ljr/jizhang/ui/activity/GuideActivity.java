@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 
 import com.ljr.jizhang.R;
 import com.ljr.jizhang.adapter.GuideViewPagerAdapter;
+import com.ljr.jizhang.framework.base.AppApplication;
 import com.ljr.jizhang.framework.base.BaseActivity;
 import com.ljr.jizhang.framework.constant.Common;
 import com.ljr.jizhang.framework.widget.BezierRoundView;
@@ -73,11 +74,10 @@ public class GuideActivity extends BaseActivity implements ViewPager.OnPageChang
     }
 
     private void intoSplashActivity() {
-
-
         Intent intent = new Intent(GuideActivity.this, SplashActivity.class);
         startActivity(intent);
-        app.finishActivity(this);
+        finish();
+
     }
 
     /**

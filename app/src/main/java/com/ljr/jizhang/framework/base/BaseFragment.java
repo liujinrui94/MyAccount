@@ -1,6 +1,7 @@
 package com.ljr.jizhang.framework.base;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -17,11 +18,17 @@ import nucleus.view.NucleusSupportFragment;
 
 public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFragment<P> {
     private BaseProgressDialog progressDialog;
+    private Context mContext;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         AppLogger.i(getClass().getSimpleName() + " onCreate");
+        mContext=getActivity();
         super.onCreate(savedInstanceState);
+    }
+
+    public Context getmContext() {
+        return mContext;
     }
 
     @Override
@@ -36,9 +43,10 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
         initView();
         initData();
     }
-    protected abstract void initView();
-    protected abstract void initData();
 
+    protected abstract void initView();
+
+    protected abstract void initData();
 
 
     /**

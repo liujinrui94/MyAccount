@@ -18,6 +18,7 @@ import com.ljr.jizhang.framework.widget.BaseProgressDialog;
 import com.ljr.jizhang.model.NetEventInterface;
 import com.ljr.jizhang.receiver.NetBroadcastReceiver;
 import com.ljr.jizhang.utils.AppLogger;
+import com.ljr.jizhang.utils.AppTools;
 import com.ljr.jizhang.utils.SnackBarUtils;
 
 import org.xutils.view.annotation.ViewInject;
@@ -37,9 +38,9 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
     private NetBroadcastReceiver netBroadcastReceiver;//监控网络的广播
     private BaseProgressDialog progressDialog;
     private Snackbar snackbar;
+    private Context mContext;
 
 
-    protected AppApplication app;
     @ViewInject(R.id.top_toolbar)
     protected Toolbar toolbar;
     @ViewInject(R.id.top_toolbar_tv)
@@ -49,15 +50,19 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = this;
         x.view().inject(this);
         initData();
         initView();
-        app.getInstance().addActivity(this);
-        AppLogger.i(getRunningActivityName(this) + " is running");
+        AppApplication.getInstance().addActivity(this);
+        AppLogger.i(AppTools.getRunningActivityName(this) + " is running");
     }
 
-    protected void initToolbar(String title, final BaseActivity context, boolean back) {
-        toolbar.setTitle(title);
+    protected void initToolbar(String title, boolean back) {
+
+        if (title != null) {
+            toolbar.setTitle(title);
+        }
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
         if (back) {
             toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white);
@@ -67,15 +72,15 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                app.finishActivity(context);
+                finish();
             }
         });
     }
 
-
-    private String getRunningActivityName(Context mContext) {
-        String contextString = mContext.toString();
-        return contextString.substring(contextString.lastIndexOf(".") + 1, contextString.indexOf("@"));
+    @Override
+    public void finish() {
+        super.finish();
+        AppApplication.getInstance().finishActivity(this);
     }
 
     protected abstract void initView();
@@ -114,6 +119,10 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
             progressDialog.cancel();
     }
 
+    public Context getmContext() {
+        return mContext;
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -144,7 +153,7 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
 
     private void isNetConnect() {
         if (snackbar == null) {
-            snackbar = SnackBarUtils.indefiniteSnackbar(textTitle, "无网络连接，请检查网络设置");
+            snackbar = SnackBarUtils.indefiniteSnackbar(toolbar, "无网络连接，请检查网络设置");
             switch (netMobile) {
                 case 1://wifi
                     if (snackbar.isShown()) {
