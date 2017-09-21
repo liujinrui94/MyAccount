@@ -83,7 +83,7 @@ public class BacklogFragment extends BaseFragment<BacklogPresenter> {
 
 
     @Event({R.id.fragment_backlog_fab_attention_button})
-    private void doOnClick(View view) {
+     void doOnClick(View view) {
         Intent mIntent = null;
         switch (view.getId()) {
             case R.id.fragment_backlog_fab_attention_button:

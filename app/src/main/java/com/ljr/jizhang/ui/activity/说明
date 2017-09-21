@@ -1,0 +1,15 @@
+
+  加密
+   EncryptManager encryptManager = EncryptManager.getEncryptManager();
+        try {
+            encryptManager.initEncrypt();
+        } catch (Exception e) {
+            e.printStackTrace();
+            Log.e("TAG", "加密管理初始化异常~~~");
+        }
+        encryptManager.getEncryptDES("1111111");
+
+
+        解密
+         String tjUserPhone = encryptManager.
+                                getDecryptDES(BaseBean.getTjUserPhone(), encryptManager.getPingKey());

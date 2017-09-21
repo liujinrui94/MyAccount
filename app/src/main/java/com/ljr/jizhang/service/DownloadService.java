@@ -4,10 +4,11 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import com.ljr.jizhang.R;
+import com.ljr.jizhang.utils.NotificationUtil;
+
 import java.io.File;
 
-import cn.vczhitou.vc.R;
-import cn.vczhitou.vc.utils.NotificationUtil;
 
 /**
  * 后台下载服务
@@ -34,7 +35,7 @@ public class DownloadService extends BaseService {
         appName = intent.getStringExtra("appName");
         iconResId = intent.getIntExtra("iconResId", -1);
         if (iconResId == -1) {
-            iconResId = R.mipmap.ico_launch;
+            iconResId = R.mipmap.ic_launcher;
         }
         download(intent.getStringExtra("downloadUrl"), intent.getStringExtra("filePath"), intent.getStringExtra("fileName"), true);
         return super.onStartCommand(intent, flags, startId);
