@@ -20,6 +20,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import nucleus.factory.RequiresPresenter;
+import rx.Observable;
+import rx.functions.Action1;
 
 @RequiresPresenter(MainPresenter.class)
 @ContentView(R.layout.activity_main)
@@ -30,12 +32,14 @@ public class MainActivity extends BaseActivity<MainPresenter> {
 
     int anInt = 0;
     private BaseRecyclerAdapter mBaseRecyclerAdapter;
-    private List<Account> listAccount=new ArrayList<>();
+    private List<Account> listAccount = new ArrayList<>();
 
     @Override
     protected void initView() {
         initToolbar("首页", true);
-        onRefresh();
+
+
+//        onRefresh();
 
 //        mBaseRecyclerAdapter= new BaseRecyclerAdapter<Account>(listAccount,R.layout.item_account) {
 //            @Override
@@ -55,17 +59,17 @@ public class MainActivity extends BaseActivity<MainPresenter> {
         mSmartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-
-                Account mAccount = new Account();
-                anInt++;
-                mAccount.setClientName(anInt+"aaaa");
-                getPresenter().addData(mSmartRefreshLayout,mAccount);
+//                Account mAccount = new Account();
+//                anInt++;
+//                mAccount.setClientName(anInt+"aaaa");
+//                getPresenter().addData(mSmartRefreshLayout,mAccount);
             }
         });
     }
+
     public void replaceAccount(List<Account> list) {
 //        mBaseRecyclerAdapter.refresh(list);
-        Log.e("AAAAAA",list+"");
+        Log.e("AAAAAA", list + "");
     }
 
     @Override

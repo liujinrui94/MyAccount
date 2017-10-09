@@ -87,7 +87,7 @@ public class BacklogFragment extends BaseFragment<BacklogPresenter> {
         Intent mIntent = null;
         switch (view.getId()) {
             case R.id.fragment_backlog_fab_attention_button:
-                mIntent = new Intent(getmContext(), AddAccountInfoActivity.class);
+                mIntent = new Intent(getContext(), AddAccountInfoActivity.class);
                 break;
             default:
                 ToastUtils.getInstance().showShortToast(getResources().getString(R.string.keying_error));

@@ -65,4 +65,6 @@ dependencies {
     compile 'info.android15.nucleus:nucleus:4.0.0'
     compile 'info.android15.nucleus:nucleus-support-v7:4.0.0'
     compile 'info.android15.nucleus:nucleus-support-v4:4.0.0'
+    compile 'io.reactivex:rxjava:1.1.0'
+    compile 'io.reactivex:rxandroid:1.1.0'
 }

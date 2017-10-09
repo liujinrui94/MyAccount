@@ -27,7 +27,7 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
         super.onCreate(savedInstanceState);
     }
 
-    public Context getmContext() {
+    public Context getContext() {
         return mContext;
     }
 
