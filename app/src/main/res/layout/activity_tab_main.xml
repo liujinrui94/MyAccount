@@ -4,7 +4,9 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/top_toolbar"></include>
+    <include
+        layout="@layout/top_toolbar"
+        android:visibility="gone"></include>
 
     <FrameLayout
         android:id="@+id/tab_content"
@@ -27,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:checked="true"
-            android:text="待办"
+            android:text="最新开奖"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -37,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="通知"
+            android:text="走势图表"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -46,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="我的"
+            android:text="号码缩水"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -55,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="设置"
+            android:text="人工计划"
             android:textColor="@drawable/selector_tab_menu_text_color" />
     </RadioGroup>
 </LinearLayout>

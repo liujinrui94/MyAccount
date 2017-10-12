@@ -1,16 +1,11 @@
 package com.ljr.jizhang.ui.fragment;
 
-import android.content.Context;
 import android.content.Intent;
+import android.os.Environment;
 import android.support.design.widget.FloatingActionButton;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.RadioGroup;
 
-import com.baidu.location.BDLocation;
-import com.baidu.location.BDLocationListener;
 import com.ljr.jizhang.R;
 import com.ljr.jizhang.bean.Account;
 import com.ljr.jizhang.framework.base.BaseFragment;
@@ -19,9 +14,7 @@ import com.ljr.jizhang.framework.base.SmartViewHolder;
 import com.ljr.jizhang.framework.refreshlayout.SmartRefreshLayout;
 import com.ljr.jizhang.framework.refreshlayout.api.RefreshLayout;
 import com.ljr.jizhang.framework.refreshlayout.listener.OnRefreshListener;
-import com.ljr.jizhang.service.LocationService;
 import com.ljr.jizhang.ui.activity.AddAccountInfoActivity;
-import com.ljr.jizhang.ui.activity.TabMainActivity;
 import com.ljr.jizhang.ui.presenter.BacklogPresenter;
 import com.ljr.jizhang.utils.AnimationUtil;
 import com.ljr.jizhang.utils.ToastUtils;
@@ -30,17 +23,12 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.Event;
 import org.xutils.view.annotation.ViewInject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import nucleus.factory.RequiresPresenter;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/24 16:21
- * @description:
- */
 @RequiresPresenter(BacklogPresenter.class)
 @ContentView(R.layout.fragment_backlog)
 public class BacklogFragment extends BaseFragment<BacklogPresenter> {
@@ -75,15 +63,52 @@ public class BacklogFragment extends BaseFragment<BacklogPresenter> {
         smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
-                getPresenter().getData();
+//                getPresenter().getData();
+                final File sdDir = Environment.getExternalStorageDirectory();
+                new Thread() {
+                    @Override
+                    public void run() {
+                        super.run();
+//                            File[] files = sdDir.listFiles();
+//                            for (final File file : files) {
+//                                if (file.getName().endsWith(".png")) {
+//                                    final Bitmap bitmap = BitmapFactory.decodeFile(file.getPath());
+//                                    getActivity().runOnUiThread(new Runnable() {
+//                                        @Override
+//                                        public void run() {
+//                                            Log.e("TAG",bitmap.toString()+" "+file.getPath());
+//                                            smartRefreshLayout.finishRefresh();
+//                                        }
+//                                    });
+//                                }else {
+//
+//                                }
+//                            }
+                        getFile(sdDir);
+                    }
+                }.start();
             }
         });
 
     }
 
+    public List<File> getFile(File file) {
+
+        List<File> mFileList = new ArrayList();
+
+        File[] fileArray = file.listFiles();
+        for (File f : fileArray) {
+            if (f.isFile()) {
+                mFileList.add(f);
+            } else {
+                getFile(f);
+            }
+        }
+        return mFileList;
+    }
 
     @Event({R.id.fragment_backlog_fab_attention_button})
-     void doOnClick(View view) {
+    void doOnClick(View view) {
         Intent mIntent = null;
         switch (view.getId()) {
             case R.id.fragment_backlog_fab_attention_button:

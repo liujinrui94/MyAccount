@@ -13,12 +13,6 @@ import java.util.List;
 
 import nucleus.presenter.Presenter;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/23 16:55
- * @description: 首页
- */
 public class MainPresenter extends Presenter<MainActivity> implements OnRefreshListener {
     private DaoSession daoSession = AppApplication.getInstance().getDaoSession();
     private List<Account> accountList = new ArrayList<>();

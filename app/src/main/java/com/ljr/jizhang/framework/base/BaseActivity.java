@@ -27,11 +27,6 @@ import org.xutils.x;
 import nucleus.presenter.Presenter;
 import nucleus.view.NucleusAppCompatActivity;
 
-/**
- * @author: LiuJinrui
- * @time: 2017/8/21 13:44
- * @description:
- */
 public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompatActivity<P> implements NetEventInterface, View.OnClickListener {
 
     private int netMobile;//网络状态
@@ -52,8 +47,8 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
         super.onCreate(savedInstanceState);
         mContext = this;
         x.view().inject(this);
-        initData();
         initView();
+        initData();
         AppApplication.getInstance().addActivity(this);
         AppLogger.i(AppTools.getRunningActivityName(this) + " is running");
     }

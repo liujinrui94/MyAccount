@@ -10,12 +10,6 @@ import com.ljr.jizhang.R;
 
 import java.util.List;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/10 15:45
- * @description: 收益四界面adapter
- */
 public class TabFragmentAdapter implements RadioGroup.OnCheckedChangeListener {
     private List<Fragment> fragments;
     private RadioGroup radioGroup;

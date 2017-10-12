@@ -10,12 +10,6 @@ import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/10 9:25
- * @description:
- */
 public class SmartViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private final AdapterView.OnItemClickListener mListener;

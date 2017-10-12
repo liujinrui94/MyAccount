@@ -14,12 +14,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/10 9:25
- * @description:
- */
 public abstract class BaseRecyclerAdapter<T> extends RecyclerView.Adapter<SmartViewHolder> implements ListAdapter {
 
 

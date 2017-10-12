@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,10 +14,13 @@ import com.ljr.jizhang.utils.AppLogger;
 
 import org.xutils.x;
 
-import nucleus.presenter.Presenter;
-import nucleus.view.NucleusSupportFragment;
-
-public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFragment<P> {
+/**
+ * @author: LiuJinrui
+ * @email: liujinrui@qdcftx.com
+ * @time: 2017/10/12 10:01
+ * @description:
+ */
+public abstract class XBaseFragment extends Fragment {
     private BaseProgressDialog progressDialog;
     private Context mContext;
     private View RootView;
@@ -24,7 +28,7 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         AppLogger.i(getClass().getSimpleName() + " onCreate");
-        mContext=getActivity();
+        mContext = getActivity();
         super.onCreate(savedInstanceState);
     }
 
@@ -34,7 +38,9 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        RootView=x.view().inject(this, inflater, container);
+        RootView = x.view().inject(this, inflater, container);
+        initView();
+        initData();
         return RootView;
     }
 
@@ -46,12 +52,6 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
         RootView = rootView;
     }
 
-    @Override
-    public void onViewCreated(View v, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(v, savedInstanceState);
-        initView();
-        initData();
-    }
 
     protected abstract void initView();
 
@@ -84,5 +84,4 @@ public abstract class BaseFragment<P extends Presenter> extends NucleusSupportFr
         if (progressDialog != null)
             progressDialog.cancel();
     }
-
 }

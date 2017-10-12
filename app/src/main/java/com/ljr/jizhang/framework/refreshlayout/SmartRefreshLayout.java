@@ -72,12 +72,6 @@ import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;
 import static com.ljr.jizhang.framework.refreshlayout.util.DensityUtil.dp2px;
 import static java.lang.System.currentTimeMillis;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/11 21:25
- * @description:
- */
 public class SmartRefreshLayout extends ViewGroup implements RefreshLayout, NestedScrollingParent, NestedScrollingChild {
 
     //<editor-fold desc="属性变量 property and variable">

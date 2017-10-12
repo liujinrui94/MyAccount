@@ -5,33 +5,113 @@ android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
     defaultConfig {
-        applicationId "com.ljr.jizhang"
+        applicationId "com.my.shishicai"
         minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        ndk {
+            //选择要添加的对应cpu类型的.so库。
+            abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
+            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        applicationId 'com.liuhecai.wending'
+        resValue("string", "app_name", "六合彩(稳定版)")
+        resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30414")
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "9e152cfbf648a84d4373831b", //正式环境JPush上注册的包名对应的appkey
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                icon: "@mipmap/liuhecaizhengshi"
+        ]
+        multiDexEnabled true
     }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+    signingConfigs {
+        config {
+            keyAlias 'shishicai'
+            keyPassword 'liujinrui'
+            storeFile file('liujinrui.jks')
+            storePassword 'liujinrui'
         }
     }
 
-    signingConfigs {
-        release {
-            storeFile file("liujinrui.jks")//keystore的路径
-            storePassword "liujinrui"
-            keyAlias "account"
-            keyPassword "liujinrui"
+    buildTypes {
+        debug {
+            signingConfig signingConfigs.config
         }
-//        debug {
-//            storeFile file('debug.keystore')
-//            storePassword "android"
-//            keyAlias "androiddebugkey"
-//            keyPassword "android"
-//        }
+
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            // 自定义输出配置
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        def fileName = "${name}${defaultConfig.versionName}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+
+    }
+
+    // 此处设置不同包名的apk信息
+    productFlavors {
+        // app生产环境配置
+        安智六合彩网 {
+            applicationId 'com.my.liuhecai'
+            resValue("string", "app_name", "六合彩网")
+            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30412")
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: applicationId,
+                    JPUSH_APPKEY : "bdc42136c07069078da204e0", //正式环境JPush上注册的包名对应的appkey
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                    icon: "@mipmap/liuhecai"
+            ]
+        }
+        安智六合彩稳定版 {
+            applicationId 'com.liuhecai.wending'
+            resValue("string", "app_name", "六合彩(稳定版)")
+            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30414")
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: applicationId,
+                    JPUSH_APPKEY : "9e152cfbf648a84d4373831b", //正式环境JPush上注册的包名对应的appkey
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                    icon: "@mipmap/liuhecaizhengshi"
+            ]
+        }
+        安智三分彩票网 {
+            applicationId 'com.my.sanfencai'
+            resValue("string", "app_name", "三分彩票网")
+            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30417")
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: applicationId,
+                    JPUSH_APPKEY : "1b0724a7c1dcf84415aa279b", //正式环境JPush上注册的包名对应的appkey
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                    icon: "@mipmap/sanfencai"
+            ]
+        }
+        安智重庆彩票网 {
+            applicationId 'com.my.chongqingcai'
+            resValue("string", "app_name", "重庆彩票网")
+            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30418")
+            manifestPlaceholders = [
+                    JPUSH_PKGNAME: applicationId,
+                    JPUSH_APPKEY : "594fc783e11dca5dae7b3068", //正式环境JPush上注册的包名对应的appkey
+                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                    icon: "@mipmap/ic_chongqingcai"
+            ]
+        }
+
+    }
+    // lint检查，防止打包因为一些警告而停止
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
     }
     sourceSets {
         main {
@@ -51,10 +131,7 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:design:25+'
-    compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-    testCompile 'junit:junit:4.12'
-
     compile 'com.google.code.gson:gson:2.8.1'
     compile 'org.greenrobot:greendao:3.0.1'
     compile 'org.greenrobot:greendao-generator:3.0.0'
@@ -67,4 +144,9 @@ dependencies {
     compile 'info.android15.nucleus:nucleus-support-v4:4.0.0'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
+    compile 'cn.jiguang.sdk:jpush:3.0.8'
+    compile 'cn.jiguang.sdk:jcore:1.1.6'
+    compile 'com.zhy:okhttputils:2.6.2'
+    //腾讯X5
+    compile files('libs/tbs_sdk_thirdapp_v3.2.0.1104_43200_sharewithdownload_withfilereader_withoutGame_obfs_20170609_115346.jar')
 }

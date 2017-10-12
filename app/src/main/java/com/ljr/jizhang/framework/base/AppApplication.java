@@ -8,18 +8,15 @@ import com.ljr.jizhang.dao.DaoMaster;
 import com.ljr.jizhang.dao.DaoSession;
 import com.ljr.jizhang.dao.MyOpenHelper;
 import com.ljr.jizhang.service.LocationService;
+import com.tencent.smtt.sdk.QbSdk;
 
 import org.greenrobot.greendao.query.QueryBuilder;
 import org.xutils.x;
 
 import java.util.Stack;
 
-/**
- * @author: LiuJinrui
- * @email: liujinrui@qdcftx.com
- * @time: 2017/8/21 14:52
- * @description:
- */
+import cn.jpush.android.api.JPushInterface;
+
 public class AppApplication extends Application {
 
     public static AppApplication instance;
@@ -43,9 +40,30 @@ public class AppApplication extends Application {
         locationService = new LocationService(getApplicationContext());
         x.Ext.init(this);
         x.Ext.setDebug(false);
+        initTBS();
+        //极光推送
+        JPushInterface.setDebugMode(true);
+        JPushInterface.init(this);
         setDatabase();
     }
 
+    private void initTBS() {
+        //搜集本地tbs内核信息并上报服务器，服务器返回结果决定使用哪个内核。
+
+        QbSdk.PreInitCallback cb = new QbSdk.PreInitCallback() {
+
+            @Override
+            public void onViewInitFinished(boolean arg0) {
+                //x5內核初始化完成的回调，为true表示x5内核加载成功，否则表示x5内核加载失败，会自动切换到系统内核。
+            }
+
+            @Override
+            public void onCoreInitFinished() {
+            }
+        };
+        //x5内核初始化接口
+        QbSdk.initX5Environment(getApplicationContext(), cb);
+    }
 
     /**
      * 设置greenDao
@@ -62,6 +80,7 @@ public class AppApplication extends Application {
         mDaoSession = mDaoMaster.newSession();
         QueryBuilder.LOG_SQL = true;
     }
+
     public DaoSession getDaoSession() {
         return mDaoSession;
     }
