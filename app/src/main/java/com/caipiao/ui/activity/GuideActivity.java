@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import com.caipiao.R;
 import com.caipiao.adapter.GuideViewPagerAdapter;
 import com.caipiao.framework.base.BaseActivity;
+import com.caipiao.framework.constant.Common;
 import com.caipiao.framework.widget.BezierRoundView;
 import com.caipiao.ui.presenter.MainPresenter;
 import com.caipiao.framework.constant.Constant;
@@ -30,7 +31,7 @@ public class GuideActivity extends BaseActivity<MainPresenter> implements ViewPa
 
     // 引导图片资源
     private static final int[] pics = {R.mipmap.one,
-            R.mipmap.two, R.mipmap.three,R.mipmap.four};
+            R.mipmap.two, R.mipmap.three, R.mipmap.four};
 
 
     protected void initView() {
@@ -43,7 +44,14 @@ public class GuideActivity extends BaseActivity<MainPresenter> implements ViewPa
             editor.putBoolean(Constant.LOGIN, false);
             editor.apply();
         } else {
-            intoSplashActivity();
+            boolean open = sharedPreferences.getBoolean(Common.FINISH_LOGIN, true);
+            if (open) {
+                intoSplashActivity();
+            } else {
+                Intent intent = new Intent(GuideActivity.this, TabMainActivity.class);
+                startActivity(intent);
+                finish();
+            }
         }
         setView(false);
         // 实例化ArrayList对象

@@ -45,7 +45,6 @@ public class SplashActivity extends BaseActivity {
 
             public void onError(Call call, Exception e, int id) {
                 Intent intent = new Intent(SplashActivity.this, TabMainActivity.class);
-                intent.putExtra("url", "https://c.cai310.cn/");
                 startActivity(intent);
                 finish();
             }
@@ -66,7 +65,6 @@ public class SplashActivity extends BaseActivity {
                                 return;
                             } else {
                                 Intent intent = new Intent();
-                                intent.putExtra("url", "https://c.cai310.cn/");
                                 intent.setClass(SplashActivity.this, TabMainActivity.class);
                                 startActivity(intent);
                                 finish();
@@ -75,7 +73,6 @@ public class SplashActivity extends BaseActivity {
                         }
                     } else {
                         Intent intent = new Intent();
-                        intent.putExtra("url", "https://c.cai310.cn/");
                         intent.setClass(SplashActivity.this, TabMainActivity.class);
                         startActivity(intent);
                         finish();
