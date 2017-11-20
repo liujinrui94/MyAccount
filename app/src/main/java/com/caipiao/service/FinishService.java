@@ -36,18 +36,7 @@ public class FinishService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.d("FinishService","onStartCommand");
-        String str = intent.getStringExtra("type").substring(9, 15);
-        if (str.equals("finish")){
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(Common.FINISH_LOGIN, false);
-            editor.apply();
-        }else if (str.equals("openit")){
-            SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            SharedPreferences.Editor editor = sharedPreferences.edit();
-            editor.putBoolean(Common.FINISH_LOGIN, true);
-            editor.apply();
-        }
+
         return super.onStartCommand(intent, flags, startId);
     }
 }

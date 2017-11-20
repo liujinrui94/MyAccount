@@ -53,9 +53,18 @@ public class MyReceiver extends BroadcastReceiver {
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
         Log.e(TAG, "extras : " + extras);
         if (message.equals("message")) {
-            Intent mIntent = new Intent(context, FinishService.class);
-            mIntent.putExtra("type", extras);
-            context.startService(mIntent);
+            String str = extras.substring(9, 15);
+            if (str.equals("finish")){
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(Common.FINISH_LOGIN, false);
+                editor.apply();
+            }else if (str.equals("openit")){
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
+                SharedPreferences.Editor editor = sharedPreferences.edit();
+                editor.putBoolean(Common.FINISH_LOGIN, true);
+                editor.apply();
+            }
         }
 
     }
