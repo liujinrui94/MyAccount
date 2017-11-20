@@ -29,7 +29,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:checked="true"
-            android:text="最新开奖"
+            android:text="开奖"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -39,7 +39,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="走势图表"
+            android:text="预测"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -48,7 +48,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="号码缩水"
+            android:text="资讯"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -57,7 +57,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="人工计划"
+            android:text="号码"
             android:textColor="@drawable/selector_tab_menu_text_color" />
     </RadioGroup>
 </LinearLayout>

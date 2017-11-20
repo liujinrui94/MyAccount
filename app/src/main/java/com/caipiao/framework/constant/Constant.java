@@ -13,8 +13,11 @@ public class Constant {
     //双色球
     public static final String DALETOU="http://5.9188.com/predict/";
     //时时彩
-    public static final String SHISHICAI="http://112.74.102.204:86/m/yu.html";
+    public static final String SHISHICAI="http://112.74.102.204:86/m/tool.html";
     //开奖公告
     public static final String KAIJIANG="http://www.66316f.com/mobile/draw_notice_details.do?lotCode=WFC";
+//    public static final String KAIJIANG="http://www.okooo.com/";
+    //
 
+    public static final String OKKAIJIANG="https://qs.888.qq.com/m_qq/mqq2.info.html?plg_nld=1&plg_vkey=1&plg_auth=1&plg_uin=1&_wv=1&purse=1&plg_nld=1&purseNew=1&_vacf=qwv&vb2ctag=4_2067_3_2696&plg_auth=1";
 }

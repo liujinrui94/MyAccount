@@ -47,10 +47,12 @@ public class GuideActivity extends BaseActivity<MainPresenter> implements ViewPa
             boolean open = sharedPreferences.getBoolean(Common.FINISH_LOGIN, true);
             if (open) {
                 intoSplashActivity();
+                return;
             } else {
                 Intent intent = new Intent(GuideActivity.this, TabMainActivity.class);
                 startActivity(intent);
                 finish();
+                return;
             }
         }
         setView(false);

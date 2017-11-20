@@ -13,6 +13,7 @@ import com.caipiao.framework.base.BaseActivity;
 import com.caipiao.framework.constant.Constant;
 import com.caipiao.ui.fragment.HomeFragment;
 import com.caipiao.ui.fragment.SSCFragment;
+import com.caipiao.ui.fragment.SmartRefreshLayoutFragment;
 import com.caipiao.ui.presenter.TabMainPresenter;
 
 import org.xutils.view.annotation.ContentView;
@@ -38,8 +39,8 @@ public class TabMainActivity extends BaseActivity {
 //        fragments.add(new HomeFragment());
 
         fragments.add(SSCFragment.newInstance(Constant.KAIJIANG));
-        fragments.add(SSCFragment.newInstance(Constant.DALETOU_ZIXUN));
-        fragments.add(SSCFragment.newInstance(Constant.DALETOU));
+        fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.DALETOU));
+        fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.DALETOU_ZIXUN));
         fragments.add(SSCFragment.newInstance(Constant.SHISHICAI));
         mTabFragmentAdapter = new TabFragmentAdapter(this, fragments, R.id.tab_content, radioGroup, 0);
         mTabFragmentAdapter.setOnRgsExtraCheckedChangedListener(new TabFragmentAdapter.OnRgsExtraCheckedChangedListener() {
@@ -58,12 +59,6 @@ public class TabMainActivity extends BaseActivity {
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        //如果不做任何处理，浏览网页，点击系统“Back”键，整个Browser会调用finish()而结束自身，
-        // 如果希望浏览的网 页回退而不是推出浏览器，需要在当前Activity中处理并消费掉该Back事件。
-        if (keyCode == KeyEvent.KEYCODE_BACK && SSCFragment.webview.canGoBack()) {
-            SSCFragment.webview.goBack();
-            return true;
-        }
         return super.onKeyDown(keyCode, event);
     }
 

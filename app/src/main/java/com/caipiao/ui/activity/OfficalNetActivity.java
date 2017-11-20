@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -14,6 +15,7 @@ import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.caipiao.R;
+
 
 
 public class OfficalNetActivity extends Activity {
@@ -32,6 +34,7 @@ public class OfficalNetActivity extends Activity {
         pb = (ProgressBar) findViewById(R.id.my_pb);
         mWebSettings = mWebview.getSettings();
         mWebSettings.setJavaScriptEnabled(true);
+        mWebview.setDownloadListener(new MyWebViewDownLoadListener());
         mWebview.loadUrl(url);
          //设置WebChromeClient类
         mWebview.setWebChromeClient(new WebChromeClient() {
@@ -73,7 +76,22 @@ public class OfficalNetActivity extends Activity {
 
 
     }
+    private class MyWebViewDownLoadListener implements DownloadListener {
 
+        @Override
+
+        public void onDownloadStart(String url, String userAgent, String contentDisposition, String mimetype,
+
+                                    long contentLength) {
+            Uri uri = Uri.parse(url);
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+
+            startActivity(intent);
+
+        }
+
+    }
     //点击返回上一页面而不是退出浏览器
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
