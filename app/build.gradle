@@ -16,9 +16,15 @@ android {
             abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
             // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
-        applicationId 'com.caipiao.no30614'
-        resValue("string", "app_name", "六合彩(稳定版)")
-        resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30614")
+        applicationId 'com.caipiao.pk10'
+        resValue("string", "app_name", "PK拾")
+        resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1")
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "d7267f7c2da900a0fbcbce2d", //正式环境JPush上注册的包名对应的appkey
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+                icon: "@mipmap/ic_launcher"
+        ]
         multiDexEnabled true
     }
     signingConfigs {
@@ -54,28 +60,28 @@ android {
 
     // 此处设置不同包名的apk信息
     productFlavors {
-       彩票助手 {
-            applicationId 'com.zhushou.no30630'
-            resValue("string", "app_name", "彩票助手")
-            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30630")
-            manifestPlaceholders = [
-                    JPUSH_PKGNAME: applicationId,
-                    JPUSH_APPKEY : "8d4c1967a25648322bf3a25c", //正式环境JPush上注册的包名对应的appkey
-                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                    icon: "@mipmap/ic_launcher"
-            ]
-        }
-        百度彩票助手 {
-            applicationId 'com.zhushou.no30086'
-            resValue("string", "app_name", "彩票助手")
-            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30086")
-            manifestPlaceholders = [
-                    JPUSH_PKGNAME: applicationId,
-                    JPUSH_APPKEY : "cab0e8bb5dd1f4ee52510c5b", //正式环境JPush上注册的包名对应的appkey
-                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                    icon: "@mipmap/ic_launcher"
-            ]
-        }
+//       彩票助手 {
+//            applicationId 'com.zhushou.no30630'
+//            resValue("string", "app_name", "彩票助手")
+//            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1")
+//            manifestPlaceholders = [
+//                    JPUSH_PKGNAME: applicationId,
+//                    JPUSH_APPKEY : "8d4c1967a25648322bf3a25c", //正式环境JPush上注册的包名对应的appkey
+//                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+//                    icon: "@mipmap/ic_launcher"
+//            ]
+//        }
+//        百度彩票助手 {
+//            applicationId 'com.zhushou.no30086'
+//            resValue("string", "app_name", "彩票助手")
+//            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30086")
+//            manifestPlaceholders = [
+//                    JPUSH_PKGNAME: applicationId,
+//                    JPUSH_APPKEY : "cab0e8bb5dd1f4ee52510c5b", //正式环境JPush上注册的包名对应的appkey
+//                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+//                    icon: "@mipmap/ic_launcher"
+//            ]
+//        }
     }
     // lint检查，防止打包因为一些警告而停止
     lintOptions {
@@ -92,7 +98,7 @@ greendao {
     schemaVersion 1
     //版本号
     targetGenDir 'src/main/java'    //生成DaoMaster类文件夹
-    daoPackage 'com.caipia.dao'  //生成DaoMaster类包名
+    daoPackage 'com.caipiao.dao'  //生成DaoMaster类包名
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

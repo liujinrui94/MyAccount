@@ -7,7 +7,8 @@ import android.text.InputFilter;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
 
-import com.ljr.jizhang.R;
+import com.caipiao.R;
+
 
 public class CustomEditText extends android.support.v7.widget.AppCompatEditText implements TextWatcher {
     private boolean shouldStopChange = false;

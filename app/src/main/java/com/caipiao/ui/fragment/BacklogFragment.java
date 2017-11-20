@@ -6,12 +6,12 @@ import android.support.design.widget.FloatingActionButton;
 import android.view.View;
 import android.widget.RadioGroup;
 
+import com.caipiao.R;
 import com.caipiao.bean.Account;
 import com.caipiao.framework.base.BaseFragment;
 import com.caipiao.framework.base.SmartViewHolder;
 import com.caipiao.ui.presenter.BacklogPresenter;
 import com.caipiao.utils.ToastUtils;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.base.BaseRecyclerAdapter;
 import com.caipiao.framework.refreshlayout.SmartRefreshLayout;
 import com.caipiao.framework.refreshlayout.api.RefreshLayout;

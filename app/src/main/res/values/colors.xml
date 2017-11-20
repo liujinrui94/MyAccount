@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#0079ff</color>
-    <color name="colorPrimaryDark">#0079ff</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#E21918</color>
+    <color name="colorPrimaryDark">#E21918</color>
+    <color name="colorAccent">#E21918</color>
 
     <color name="btn_round_grey">#7c7c7c</color>
     <!-- 底部菜单蓝色 -->

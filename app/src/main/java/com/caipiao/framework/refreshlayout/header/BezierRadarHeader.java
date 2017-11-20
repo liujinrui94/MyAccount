@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 
+import com.caipiao.R;
 import com.caipiao.framework.refreshlayout.api.RefreshKernel;
 import com.caipiao.framework.refreshlayout.api.RefreshLayout;
 import com.caipiao.framework.refreshlayout.constant.SpinnerStyle;
@@ -20,7 +21,6 @@ import com.caipiao.framework.refreshlayout.header.bezierradar.RoundDotView;
 import com.caipiao.framework.refreshlayout.header.bezierradar.RoundProgressView;
 import com.caipiao.framework.refreshlayout.header.bezierradar.WaveView;
 import com.caipiao.framework.refreshlayout.util.DensityUtil;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.refreshlayout.api.RefreshHeader;
 import com.caipiao.framework.refreshlayout.constant.RefreshState;
 

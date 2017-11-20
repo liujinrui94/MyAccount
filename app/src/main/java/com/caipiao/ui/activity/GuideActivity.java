@@ -9,11 +9,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import com.caipiao.R;
 import com.caipiao.adapter.GuideViewPagerAdapter;
 import com.caipiao.framework.base.BaseActivity;
 import com.caipiao.framework.widget.BezierRoundView;
 import com.caipiao.ui.presenter.MainPresenter;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.constant.Constant;
 
 import java.util.ArrayList;

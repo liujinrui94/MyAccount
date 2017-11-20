@@ -34,6 +34,7 @@ import android.webkit.WebView;
 import android.widget.AbsListView;
 import android.widget.ScrollView;
 
+import com.caipiao.R;
 import com.caipiao.framework.refreshlayout.api.DefaultRefreshFooterCreater;
 import com.caipiao.framework.refreshlayout.api.DefaultRefreshHeaderCreater;
 import com.caipiao.framework.refreshlayout.api.RefreshFooter;
@@ -50,7 +51,6 @@ import com.caipiao.framework.refreshlayout.listener.OnRefreshLoadmoreListener;
 import com.caipiao.framework.refreshlayout.util.DelayedRunable;
 import com.caipiao.framework.refreshlayout.util.DensityUtil;
 import com.caipiao.framework.refreshlayout.util.ViscousFluidInterpolator;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.refreshlayout.api.RefreshContent;
 import com.caipiao.framework.refreshlayout.api.RefreshHeader;
 import com.caipiao.framework.refreshlayout.constant.DimensionStatus;

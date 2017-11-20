@@ -7,13 +7,13 @@ import android.widget.RadioGroup;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
+import com.caipiao.R;
 import com.caipiao.adapter.TabFragmentAdapter;
-import com.caipiao.service.LocationService;
-import com.caipiao.ui.presenter.TabMainPresenter;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.base.BaseActivity;
+import com.caipiao.framework.constant.Constant;
 import com.caipiao.ui.fragment.HomeFragment;
 import com.caipiao.ui.fragment.SSCFragment;
+import com.caipiao.ui.presenter.TabMainPresenter;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -23,6 +23,7 @@ import java.util.List;
 
 import nucleus.factory.RequiresPresenter;
 
+
 @RequiresPresenter(TabMainPresenter.class)
 @ContentView(R.layout.activity_tab_main)
 public class TabMainActivity extends BaseActivity {
@@ -31,15 +32,15 @@ public class TabMainActivity extends BaseActivity {
 
     @ViewInject(R.id.tab_main_radio_group)
     private RadioGroup radioGroup;
-    public static String latitude, longitude, country, city, district, address;
-    private LocationService locationService;
 
     @Override
     protected void initView() {
-        fragments.add(new HomeFragment());
-        fragments.add(SSCFragment.newInstance("http://5.9188.com/predict/ssq/"));
-        fragments.add(SSCFragment.newInstance("http://112.74.102.204:86/m/tool.html"));
-        fragments.add(SSCFragment.newInstance("http://112.74.102.204:86/m/yu.html"));
+//        fragments.add(new HomeFragment());
+
+        fragments.add(SSCFragment.newInstance(Constant.KAIJIANG));
+        fragments.add(SSCFragment.newInstance(Constant.DALETOU_ZIXUN));
+        fragments.add(SSCFragment.newInstance(Constant.DALETOU));
+        fragments.add(SSCFragment.newInstance(Constant.SHISHICAI));
         mTabFragmentAdapter = new TabFragmentAdapter(this, fragments, R.id.tab_content, radioGroup, 0);
         mTabFragmentAdapter.setOnRgsExtraCheckedChangedListener(new TabFragmentAdapter.OnRgsExtraCheckedChangedListener() {
             @Override
@@ -101,12 +102,6 @@ public class TabMainActivity extends BaseActivity {
         @Override
         public void onReceiveLocation(BDLocation location) {
             if (null != location && location.getLocType() != BDLocation.TypeServerError) {
-                latitude = location.getLatitude() + "";
-                longitude = location.getLongitude() + "";
-                country = location.getCountry();
-                city = location.getCity();
-                district = location.getDistrict();
-                address = location.getAddrStr();
             }
         }
 

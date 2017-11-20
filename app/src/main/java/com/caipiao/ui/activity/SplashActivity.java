@@ -5,8 +5,8 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 
+import com.caipiao.R;
 import com.caipiao.framework.base.BaseActivity;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.constant.Constant;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;

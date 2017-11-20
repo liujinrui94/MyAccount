@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 
+import com.caipiao.R;
 import com.caipiao.utils.NotificationUtil;
-import com.ljr.jizhang.R;
 
 import java.io.File;
 

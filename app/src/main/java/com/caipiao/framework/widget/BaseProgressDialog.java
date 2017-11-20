@@ -7,7 +7,8 @@ import android.text.TextUtils;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.ljr.jizhang.R;
+import com.caipiao.R;
+
 
 public class BaseProgressDialog extends ProgressDialog {
     private String dialogDetail;

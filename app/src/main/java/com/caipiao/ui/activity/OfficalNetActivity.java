@@ -13,7 +13,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
-import com.ljr.jizhang.R;
+import com.caipiao.R;
 
 
 public class OfficalNetActivity extends Activity {

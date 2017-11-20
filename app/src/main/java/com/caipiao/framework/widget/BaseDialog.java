@@ -7,7 +7,8 @@ import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.ljr.jizhang.R;
+import com.caipiao.R;
+
 
 public class BaseDialog extends Dialog {
 

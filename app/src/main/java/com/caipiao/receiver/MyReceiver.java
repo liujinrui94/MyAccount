@@ -4,9 +4,14 @@ import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
+
+import com.caipiao.framework.constant.Common;
+import com.caipiao.service.FinishService;
 
 import cn.jpush.android.api.JPushInterface;
 
@@ -42,11 +47,17 @@ public class MyReceiver extends BroadcastReceiver {
 
     private void receivingNotification(Context context, Bundle bundle) {
         String title = bundle.getString(JPushInterface.EXTRA_NOTIFICATION_TITLE);
-        Log.d(TAG, " title : " + title);
+        Log.e(TAG, " title : " + title);
         String message = bundle.getString(JPushInterface.EXTRA_ALERT);
-        Log.d(TAG, "message : " + message);
+        Log.e(TAG, "message : " + message);
         String extras = bundle.getString(JPushInterface.EXTRA_EXTRA);
-        Log.d(TAG, "extras : " + extras);
+        Log.e(TAG, "extras : " + extras);
+        if (message.equals("message")) {
+            Intent mIntent = new Intent(context, FinishService.class);
+            mIntent.putExtra("type", extras);
+            context.startService(mIntent);
+        }
+
     }
 
     private void openNotification(Context context, Bundle bundle) {

@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.widget.RadioGroup;
 
 
-import com.ljr.jizhang.R;
+import com.caipiao.R;
 
 import java.util.List;
 

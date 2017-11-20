@@ -15,7 +15,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.ljr.jizhang.R;
+import com.caipiao.R;
+
 
 public class BezierRoundView extends View implements ViewPager.OnPageChangeListener {
     public BezierRoundView(Context context) {

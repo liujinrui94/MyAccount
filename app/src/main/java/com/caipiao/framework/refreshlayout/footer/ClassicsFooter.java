@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.caipiao.R;
 import com.caipiao.framework.refreshlayout.api.RefreshFooter;
 import com.caipiao.framework.refreshlayout.api.RefreshKernel;
 import com.caipiao.framework.refreshlayout.api.RefreshLayout;
@@ -23,7 +24,6 @@ import com.caipiao.framework.refreshlayout.constant.SpinnerStyle;
 import com.caipiao.framework.refreshlayout.internal.ProgressDrawable;
 import com.caipiao.framework.refreshlayout.internal.pathview.PathsDrawable;
 import com.caipiao.framework.refreshlayout.util.DensityUtil;
-import com.ljr.jizhang.R;
 import com.caipiao.framework.refreshlayout.constant.RefreshState;
 
 import static android.view.ViewGroup.LayoutParams.WRAP_CONTENT;

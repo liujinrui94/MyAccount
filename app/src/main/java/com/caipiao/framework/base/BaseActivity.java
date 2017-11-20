@@ -12,11 +12,11 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
 
+import com.caipiao.R;
 import com.caipiao.framework.widget.BaseProgressDialog;
 import com.caipiao.model.NetEventInterface;
-import com.caipiao.utils.AppLogger;
-import com.ljr.jizhang.R;
 import com.caipiao.receiver.NetBroadcastReceiver;
+import com.caipiao.utils.AppLogger;
 import com.caipiao.utils.SnackBarUtils;
 
 import org.xutils.view.annotation.ViewInject;
@@ -24,6 +24,7 @@ import org.xutils.x;
 
 import nucleus.presenter.Presenter;
 import nucleus.view.NucleusAppCompatActivity;
+
 
 public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompatActivity<P> implements NetEventInterface, View.OnClickListener {
 

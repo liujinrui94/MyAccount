@@ -6,9 +6,9 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 
+import com.caipiao.R;
 import com.caipiao.framework.base.BaseActivity;
 import com.caipiao.ui.presenter.MainPresenter;
-import com.ljr.jizhang.R;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;

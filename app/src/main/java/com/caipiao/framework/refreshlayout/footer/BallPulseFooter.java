@@ -10,6 +10,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.caipiao.R;
 import com.caipiao.framework.refreshlayout.api.RefreshFooter;
 import com.caipiao.framework.refreshlayout.api.RefreshKernel;
 import com.caipiao.framework.refreshlayout.api.RefreshLayout;
@@ -17,7 +18,6 @@ import com.caipiao.framework.refreshlayout.constant.RefreshState;
 import com.caipiao.framework.refreshlayout.constant.SpinnerStyle;
 import com.caipiao.framework.refreshlayout.footer.ballpulse.BallPulseView;
 import com.caipiao.framework.refreshlayout.util.DensityUtil;
-import com.ljr.jizhang.R;
 
 import static android.view.View.MeasureSpec.AT_MOST;
 import static android.view.View.MeasureSpec.getSize;
