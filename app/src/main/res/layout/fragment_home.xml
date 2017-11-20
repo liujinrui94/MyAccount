@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <com.caipiao.framework.refreshlayout.SmartRefreshLayout
+            android:id="@+id/fragment_home_smartRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.caipiao.framework.refreshlayout.header.ClassicsHeader
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlClassicsSpinnerStyle="FixedBehind"
+                app:srlDrawableMarginRight="10dp"
+                app:srlEnableLastTime="false"
+                app:srlFinishDelay="500"
+                app:srlPrimaryColor="@color/colorPrimary"
+                app:srlTextSizeTime="10dp"
+                app:srlTextTimeMarginTop="2dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/fragment_home_rlv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:scrollbars="vertical"
+                tools:listitem="@android:layout/simple_list_item_2" />
+
+            <com.caipiao.framework.refreshlayout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlPrimaryColor="@color/white" />
+        </com.caipiao.framework.refreshlayout.SmartRefreshLayout>
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/fragment_backlog_fab_attention_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="30dp"
+            android:onClick="onClick"
+            android:src="@mipmap/ic_action_bar_add"
+            app:backgroundTint="@color/colorPrimary"
+            app:borderWidth="0dp"
+            android:visibility="gone"
+            app:elevation="0dp"
+            app:fabSize="mini" />
+    </android.support.design.widget.CoordinatorLayout>
+
+
+</LinearLayout>

@@ -8,8 +8,8 @@ import org.greenrobot.greendao.database.Database;
 import org.greenrobot.greendao.identityscope.IdentityScopeType;
 import org.greenrobot.greendao.internal.DaoConfig;
 
-import com.ljr.jizhang.bean.Account;
-import com.ljr.jizhang.bean.UserInfo;
+import com.caipiao.bean.Account;
+import com.caipiao.bean.UserInfo;
 
 import com.ljr.jizhang.dao.AccountDao;
 import com.ljr.jizhang.dao.UserInfoDao;

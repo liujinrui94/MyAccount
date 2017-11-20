@@ -99,4 +99,12 @@
         <attr name="srlDrawableProgress"/>
         <attr name="srlDrawableMarginRight"/>
     </declare-styleable>
+    <!--自定义EditText-->
+    <declare-styleable name="CustomEditText">
+        <attr name="editType" format="integer">
+            <enum name="numberBankCard" value="0" />
+            <enum name="numberPhone" value="1" />
+            <enum name="numberIdCard" value="2" />
+        </attr>
+    </declare-styleable>
 </resources>

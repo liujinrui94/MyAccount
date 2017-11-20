@@ -24,4 +24,15 @@
     <color name="s_text_color">#ff8a8c8e</color>
 
 
+    <color name="orange">#FFA500</color><!--橙色 -->
+    <color name="six">#666666</color>
+    <color name="three">#333333</color>
+    <color name="charge_text">#ffb200</color>
+    <color name="crimson">#DC143C</color><!--暗深红色 -->
+    <color name="green">#008000</color><!--绿色 -->
+    <color name="line">#b8c1b8</color><!--绿色 -->
+    <color name="yingguang_green">#FF4DD3D6</color><!--toolbar绿色 -->
+    <color name="qianlan">#4f93fa</color><!--浅蓝 -->
+    <color name="henqiandelan">#acc3e7</color><!--很浅的蓝 -->
+
 </resources>

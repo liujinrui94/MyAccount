@@ -3,29 +3,22 @@ apply plugin: 'org.greenrobot.greendao'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "27.0.0"
     defaultConfig {
         applicationId "com.my.shishicai"
-        minSdkVersion 15
+        minSdkVersion 16
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 3
+        versionName "1.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         ndk {
             //选择要添加的对应cpu类型的.so库。
             abiFilters 'armeabi', 'armeabi-v7a', 'armeabi-v8a'
             // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
         }
-
-        applicationId 'com.liuhecai.wending'
+        applicationId 'com.caipiao.no30614'
         resValue("string", "app_name", "六合彩(稳定版)")
-        resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30414")
-        manifestPlaceholders = [
-                JPUSH_PKGNAME: applicationId,
-                JPUSH_APPKEY : "9e152cfbf648a84d4373831b", //正式环境JPush上注册的包名对应的appkey
-                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                icon: "@mipmap/liuhecaizhengshi"
-        ]
+        resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30614")
         multiDexEnabled true
     }
     signingConfigs {
@@ -61,52 +54,28 @@ android {
 
     // 此处设置不同包名的apk信息
     productFlavors {
-        // app生产环境配置
-        安智六合彩网 {
-            applicationId 'com.my.liuhecai'
-            resValue("string", "app_name", "六合彩网")
-            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30412")
+       彩票助手 {
+            applicationId 'com.zhushou.no30630'
+            resValue("string", "app_name", "彩票助手")
+            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30630")
             manifestPlaceholders = [
                     JPUSH_PKGNAME: applicationId,
-                    JPUSH_APPKEY : "bdc42136c07069078da204e0", //正式环境JPush上注册的包名对应的appkey
+                    JPUSH_APPKEY : "8d4c1967a25648322bf3a25c", //正式环境JPush上注册的包名对应的appkey
                     JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                    icon: "@mipmap/liuhecai"
+                    icon: "@mipmap/ic_launcher"
             ]
         }
-        安智六合彩稳定版 {
-            applicationId 'com.liuhecai.wending'
-            resValue("string", "app_name", "六合彩(稳定版)")
-            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30414")
+        百度彩票助手 {
+            applicationId 'com.zhushou.no30086'
+            resValue("string", "app_name", "彩票助手")
+            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30086")
             manifestPlaceholders = [
                     JPUSH_PKGNAME: applicationId,
-                    JPUSH_APPKEY : "9e152cfbf648a84d4373831b", //正式环境JPush上注册的包名对应的appkey
+                    JPUSH_APPKEY : "cab0e8bb5dd1f4ee52510c5b", //正式环境JPush上注册的包名对应的appkey
                     JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                    icon: "@mipmap/liuhecaizhengshi"
+                    icon: "@mipmap/ic_launcher"
             ]
         }
-        安智三分彩票网 {
-            applicationId 'com.my.sanfencai'
-            resValue("string", "app_name", "三分彩票网")
-            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30417")
-            manifestPlaceholders = [
-                    JPUSH_PKGNAME: applicationId,
-                    JPUSH_APPKEY : "1b0724a7c1dcf84415aa279b", //正式环境JPush上注册的包名对应的appkey
-                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                    icon: "@mipmap/sanfencai"
-            ]
-        }
-        安智重庆彩票网 {
-            applicationId 'com.my.chongqingcai'
-            resValue("string", "app_name", "重庆彩票网")
-            resValue("string", "Url", "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1&appid=no30418")
-            manifestPlaceholders = [
-                    JPUSH_PKGNAME: applicationId,
-                    JPUSH_APPKEY : "594fc783e11dca5dae7b3068", //正式环境JPush上注册的包名对应的appkey
-                    JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                    icon: "@mipmap/ic_chongqingcai"
-            ]
-        }
-
     }
     // lint检查，防止打包因为一些警告而停止
     lintOptions {
@@ -123,7 +92,7 @@ greendao {
     schemaVersion 1
     //版本号
     targetGenDir 'src/main/java'    //生成DaoMaster类文件夹
-    daoPackage 'com.ljr.jizhang.dao'  //生成DaoMaster类包名
+    daoPackage 'com.caipia.dao'  //生成DaoMaster类包名
 }
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])

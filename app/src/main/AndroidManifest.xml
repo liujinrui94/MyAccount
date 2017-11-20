@@ -27,29 +27,22 @@
     <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
 
     <application
-        android:name=".framework.base.AppApplication"
+        android:name="com.caipiao.framework.base.AppApplication"
         android:allowBackup="true"
         android:icon="${icon}"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activity.TabMainActivity">
-
+        <activity android:name="com.caipiao.ui.activity.TabMainActivity">
         </activity>
-
        <activity
-             android:name=".ui.activity.MainActivity"
+             android:name="com.caipiao.ui.activity.MainActivity"
              android:launchMode="singleTask"
              android:screenOrientation="portrait"
              android:windowSoftInputMode="adjustPan">
        </activity>
         <activity
-            android:name=".ui.activity.GuideActivity"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustPan"></activity>
-        <activity
-            android:name=".ui.activity.SplashActivity"
+            android:name="com.caipiao.ui.activity.GuideActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan">
@@ -60,13 +53,24 @@
             </intent-filter>
 
         </activity>
+        <activity
+            android:name="com.caipiao.ui.activity.SplashActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+        </activity>
 
         <activity
-            android:name=".ui.activity.AddAccountInfoActivity"
+            android:name="com.caipiao.ui.activity.AddAccountInfoActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustPan"></activity>
 
+        <activity
+            android:name="com.caipiao.ui.activity.OfficalNetActivity"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"></activity>
 
         <service
             android:name="com.baidu.location.f"
@@ -81,7 +85,7 @@
             android:value="ofeMZqXVFdFWXNjuiuC7SW0zC2yNORBW" />
 
         <receiver
-            android:name=".receiver.MyReceiver"
+            android:name="com.caipiao.receiver.MyReceiver"
             android:enabled="true"
             tools:ignore="ExportedReceiver">
             <intent-filter>
@@ -94,13 +98,6 @@
                 <category android:name="${applicationId}" />
             </intent-filter>
         </receiver>
-
-
-
-        <activity android:name=".caipiao.view.MainView"></activity>
-        <activity android:name=".caipiao.view.BuyLotteryLookView"></activity>
-        <activity android:name=".caipiao.view.UserView"></activity>
-        <activity android:name=".caipiao.view.HemaiWebView"></activity>
     </application>
 
 </manifest>
