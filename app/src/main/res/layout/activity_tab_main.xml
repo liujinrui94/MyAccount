@@ -15,6 +15,7 @@
         android:layout_weight="1" />
 
     <RadioGroup
+
         android:id="@+id/tab_main_radio_group"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
@@ -26,20 +27,22 @@
             android:id="@+id/profit_account_balance_rb"
             style="@style/MyTabButton"
             android:layout_width="0dp"
+            android:drawableTop="@drawable/selector_main_rb2"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:checked="true"
-            android:text="开奖"
+            android:text="战绩"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
             android:id="@+id/profit_cumulative_development_rb"
             style="@style/MyTabButton"
             android:layout_width="0dp"
+            android:drawableTop="@drawable/selector_main_rb0"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="预测"
+            android:text="资讯"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -48,6 +51,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:visibility="gone"
+            android:drawableTop="@drawable/selector_main_rb0"
             android:layout_weight="1"
             android:text="资讯"
             android:textColor="@drawable/selector_tab_menu_text_color" />
@@ -56,6 +60,7 @@
             android:id="@+id/profit_improve_earnings_rb"
             style="@style/MyTabButton"
             android:layout_width="0dp"
+            android:drawableTop="@drawable/selector_main_rb1"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="号码"
