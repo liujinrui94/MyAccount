@@ -23,7 +23,7 @@ android {
                 JPUSH_PKGNAME: applicationId,
                 JPUSH_APPKEY : "d7267f7c2da900a0fbcbce2d", //正式环境JPush上注册的包名对应的appkey
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
-                icon: "@mipmap/ic_launcher"
+                icon: "@mipmap/app_launcher"
         ]
         multiDexEnabled true
     }

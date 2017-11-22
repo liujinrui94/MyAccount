@@ -172,4 +172,11 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
 
         }
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        onStart();
+        super.onActivityResult(requestCode, resultCode, data);
+
+    }
 }

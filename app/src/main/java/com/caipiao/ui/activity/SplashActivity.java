@@ -1,6 +1,11 @@
 package com.caipiao.ui.activity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkInfo;
+import android.os.Build;
 import android.os.Handler;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +28,10 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-        Log.e("ID",JPushInterface.getRegistrationID(this));
+        Log.e("ID", JPushInterface.getRegistrationID(this));
+        if (!isNetworkAvailable(getBaseContext())) {
+            return;
+        }
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -119,6 +127,33 @@ public class SplashActivity extends BaseActivity {
 //            }
 //        });
 //    }
-
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        //新版本调用方法获取网络状态
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Network[] networks = connectivityManager.getAllNetworks();
+            NetworkInfo networkInfo;
+            for (Network mNetwork : networks) {
+                networkInfo = connectivityManager.getNetworkInfo(mNetwork);
+                if (networkInfo.getState().equals(NetworkInfo.State.CONNECTED)) {
+                    return true;
+                }
+            }
+        } else {
+            //否则调用旧版本方法
+            if (connectivityManager != null) {
+                NetworkInfo[] info = connectivityManager.getAllNetworkInfo();
+                if (info != null) {
+                    for (NetworkInfo anInfo : info) {
+                        if (anInfo.getState() == NetworkInfo.State.CONNECTED) {
+                            Log.d("Network", "NETWORKNAME: " + anInfo.getTypeName());
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
 }

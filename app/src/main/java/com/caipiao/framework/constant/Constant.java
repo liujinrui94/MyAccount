@@ -3,7 +3,7 @@ package com.caipiao.framework.constant;
 public class Constant {
 
 
-    public static final String Url = "http://115.126.65.150/Lottery_server/check_and_get_url.php?type=android&show_url=1";
+    public static final String Url = "http://www.08cpapp.com/Lottery_server/check_and_get_url.php?type=android&show_url=20178837";
     public static final String LOGIN="fist";
     public static final String DASHEN="http://www.310win.com/Recommend/AjaxForTj.ashx?n=0.6403141233914953&action=GetTjList&Type=1&SubType=0&OrderType=1&PageIndex=0&PageSize=10";
     //双色球
