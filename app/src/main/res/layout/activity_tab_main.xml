@@ -27,11 +27,11 @@
             android:id="@+id/profit_account_balance_rb"
             style="@style/MyTabButton"
             android:layout_width="0dp"
-            android:drawableTop="@drawable/selector_main_rb2"
+            android:drawableTop="@drawable/selector_main_rb1"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:checked="true"
-            android:text="战绩"
+            android:text="开奖"
             android:textColor="@drawable/selector_tab_menu_text_color" />
 
         <RadioButton
@@ -60,7 +60,7 @@
             android:id="@+id/profit_improve_earnings_rb"
             style="@style/MyTabButton"
             android:layout_width="0dp"
-            android:drawableTop="@drawable/selector_main_rb1"
+            android:drawableTop="@drawable/selector_main_rb2"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="号码"

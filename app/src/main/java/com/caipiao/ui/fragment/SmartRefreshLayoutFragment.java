@@ -19,6 +19,7 @@ import com.caipiao.framework.refreshlayout.SmartRefreshLayout;
 import com.caipiao.framework.refreshlayout.api.RefreshLayout;
 import com.caipiao.framework.refreshlayout.listener.OnRefreshListener;
 import com.tencent.smtt.sdk.WebChromeClient;
+import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
 import com.tencent.smtt.sdk.WebViewClient;
 
@@ -61,7 +62,12 @@ public class SmartRefreshLayoutFragment extends XBaseFragment {
         webview= (WebView) getRootView().findViewById(R.id.smartRefreshLayout_payment_fragment);
         toolbar= (Toolbar) getRootView().findViewById(R.id.top_toolbar);
         toolbar.setNavigationIcon(R.mipmap.ic_arrow_back_white);
-        smartRefreshLayout.autoRefresh();
+        smartRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
+            @Override
+            public void onRefresh(RefreshLayout refreshlayout) {
+                webview.loadUrl(URL);
+            }
+        });
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,12 +80,11 @@ public class SmartRefreshLayoutFragment extends XBaseFragment {
     }
     @Override
     protected void initData() {
-
-
         webview.getSettings().setSupportZoom(true);
         webview.getSettings().setBuiltInZoomControls(true);
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webview.setWebViewClient(client);
         webview.setWebChromeClient(chromeClient);
         webview.loadUrl(URL);

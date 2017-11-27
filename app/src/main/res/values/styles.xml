@@ -39,7 +39,11 @@
         <item name="android:windowBackground">@android:color/transparent</item>
         <item name="colorAccent">@color/colorPrimary</item>
     </style>
-
+    <style name="SplashActivityTheme" parent="AppTheme">
+        <item name="android:windowFullscreen">true</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+    </style>
     <!-- 主页的tab样式 -->
     <style name="MyTabButton">
         <!-- 水平居中 -->

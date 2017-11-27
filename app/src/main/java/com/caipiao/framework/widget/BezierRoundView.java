@@ -1,7 +1,6 @@
 package com.caipiao.framework.widget;
 
 import android.content.Context;
-import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -15,7 +14,6 @@ import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 
-import com.caipiao.R;
 
 
 public class BezierRoundView extends View implements ViewPager.OnPageChangeListener {
@@ -30,26 +28,9 @@ public class BezierRoundView extends View implements ViewPager.OnPageChangeListe
     public BezierRoundView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
-        mRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 15, getResources().getDisplayMetrics());  //默认设置15dp
+        mRadius = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 5, getResources().getDisplayMetrics());  //默认设置15dp
 
         //获得我们所定义的自定义样式属性
-        TypedArray array = context.getTheme().obtainStyledAttributes(attrs, R.styleable.BezierRoundView, defStyleAttr, 0);
-        int n = array.getIndexCount();
-        for (int i = 0; i < n; i++) {
-            int attr = array.getIndex(i);
-            if (attr == R.styleable.BezierRoundView_color_bez) {
-                color_bez = array.getColor(i, color_bez);
-            } else if (attr == R.styleable.BezierRoundView_color_stroke) {
-                color_stroke = array.getColor(i, color_stroke);
-            } else if (attr == R.styleable.BezierRoundView_time_animator) {
-                time_animator = array.getInteger(i, time_animator);
-            } else if (attr == R.styleable.BezierRoundView_round_count) {
-                default_round_count = array.getInteger(i, default_round_count);
-            } else if (attr == R.styleable.BezierRoundView_radius) {
-                mRadius = array.getDimensionPixelSize(attr, mRadius);
-            }
-        }
-        array.recycle();
         init();
     }
 
@@ -193,10 +174,7 @@ public class BezierRoundView extends View implements ViewPager.OnPageChangeListe
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-
         canvas.translate(0, mHeight / 2);
-
-
         mBezPath.reset();
         for (int i = 0; i < default_round_count; i++) {
             canvas.drawCircle(bezPos[i], 0, mRadius - 2, mRoundStrokePaint);   //绘制圆框

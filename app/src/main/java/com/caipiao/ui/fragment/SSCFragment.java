@@ -8,17 +8,18 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.DownloadListener;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ProgressBar;
 
 import com.caipiao.R;
-import com.tencent.smtt.sdk.DownloadListener;
-import com.tencent.smtt.sdk.WebChromeClient;
-import com.tencent.smtt.sdk.WebView;
-import com.tencent.smtt.sdk.WebViewClient;
 
 public class SSCFragment extends Fragment {
 
-    public static WebView webview;
+    WebView webview;
     ProgressBar progressBar;
 
     String URL;
@@ -57,12 +58,13 @@ public class SSCFragment extends Fragment {
         webview.getSettings().setJavaScriptEnabled(true);
         webview.setWebViewClient(client);
         webview.setWebChromeClient(chromeClient);
+        webview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
         webview.setDownloadListener(new MyWebViewDownLoadListener());
 
     }
 
     private WebViewClient client = new WebViewClient() {
-//        @Override
+        //        @Override
 //        public boolean shouldOverrideUrlLoading(WebView view, String url) {
 //            if( url.startsWith("http:") || url.startsWith("https:") ) {
 //                return false;
@@ -74,10 +76,10 @@ public class SSCFragment extends Fragment {
 //            return true;
 //        }
 // 防止加载网页时调起系统浏览器
-public boolean shouldOverrideUrlLoading(WebView view, String url) {
-    view.loadUrl(url);
-    return true;
-}
+        public boolean shouldOverrideUrlLoading(WebView view, String url) {
+            view.loadUrl(url);
+            return true;
+        }
 
 
     };
@@ -94,6 +96,7 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
             super.onProgressChanged(webView, i);
         }
     };
+
     private class MyWebViewDownLoadListener implements DownloadListener {
 
         @Override
@@ -110,6 +113,7 @@ public boolean shouldOverrideUrlLoading(WebView view, String url) {
         }
 
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

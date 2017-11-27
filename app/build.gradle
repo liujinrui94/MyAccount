@@ -25,7 +25,7 @@ android {
                 JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
                 icon: "@mipmap/app_launcher"
         ]
-        multiDexEnabled true
+        multiDexEnabled false
     }
     signingConfigs {
         config {

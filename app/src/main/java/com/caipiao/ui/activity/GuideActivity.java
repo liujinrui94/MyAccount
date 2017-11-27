@@ -36,7 +36,6 @@ public class GuideActivity extends BaseActivity<MainPresenter> implements ViewPa
 
     protected void initView() {
         setContentView(R.layout.activity_guide);
-
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         boolean firstTime = sharedPreferences.getBoolean(Constant.LOGIN, true);
         if (firstTime) {
@@ -69,13 +68,7 @@ public class GuideActivity extends BaseActivity<MainPresenter> implements ViewPa
                 intoSplashActivity();
             }
         });
-    }
 
-
-    /**
-     * 初始化viewpager需加载的数据
-     */
-    protected void initData() {
         //定义一个布局并设置参数
         LinearLayout.LayoutParams mParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         //初始化引导页图片
@@ -90,7 +83,17 @@ public class GuideActivity extends BaseActivity<MainPresenter> implements ViewPa
         viewPager.setOnPageChangeListener(this);//设置监听
         BezierRoundView bezRound = (BezierRoundView) findViewById(R.id.guide_bezier);
         bezRound.attachViewPage(viewPager);
+
     }
+
+
+    /**
+     * 初始化viewpager需加载的数据
+     */
+    protected void initData() {
+    }
+
+
 
     @Override
     public void onClick(View view) {

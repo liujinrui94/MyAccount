@@ -1,15 +1,19 @@
 package com.caipiao.framework.base;
 
+import android.annotation.TargetApi;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.ConnectivityManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.caipiao.R;
@@ -46,13 +50,28 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+//            setTranslucentStatus(true);
+//        }
         x.view().inject(this);
         initView();
         initData();
         app.getInstance().addActivity(this);
         AppLogger.i(getRunningActivityName(this) + " is running");
     }
-
+    @TargetApi(19)
+    private void setTranslucentStatus(boolean on) {
+        Window win = getWindow();
+        WindowManager.LayoutParams winParams = win.getAttributes();
+        final int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+        if (on) {
+            winParams.flags |= bits;
+        } else {
+            winParams.flags &= ~bits;
+        }
+        win.setAttributes(winParams);
+    }
     protected void initToolbar(String title, final BaseActivity context, boolean back) {
         toolbar.setTitle(title);
         toolbar.setTitleTextColor(getResources().getColor(R.color.white));
@@ -175,7 +194,6 @@ public abstract class BaseActivity<P extends Presenter> extends NucleusAppCompat
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        onStart();
         super.onActivityResult(requestCode, resultCode, data);
 
     }

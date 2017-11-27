@@ -38,7 +38,8 @@ public class TabMainActivity extends BaseActivity {
     protected void initView() {
 //        fragments.add(new HomeFragment());
 
-        fragments.add(SSCFragment.newInstance(Constant.KAIJIANG));
+        fragments.add(SSCFragment.newInstance(Constant.ZHANJI));
+//        fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.ZHANJI));
         fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.DALETOU));
         fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.DALETOU_ZIXUN));
         fragments.add(SSCFragment.newInstance(Constant.SHISHICAI));
@@ -70,16 +71,6 @@ public class TabMainActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-//        locationService = AppApplication.getInstance().locationService;
-//        locationService.registerListener(mListener);
-//        locationService.start();
-//        //注册监听
-//        int type = getIntent().getIntExtra("from", 0);
-//        if (type == 0) {
-//            locationService.setLocationOption(locationService.getDefaultLocationClientOption());
-//        } else if (type == 1) {
-//            locationService.setLocationOption(locationService.getOption());
-//        }
     }
 
     /***

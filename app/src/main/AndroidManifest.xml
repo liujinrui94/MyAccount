@@ -29,9 +29,8 @@
     <application
         android:name="com.caipiao.framework.base.AppApplication"
         android:allowBackup="true"
-        android:icon="${icon}"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
+        android:icon="@mipmap/app_logo"
+        android:label="测试"
         android:theme="@style/AppTheme">
         <activity android:name="com.caipiao.ui.activity.TabMainActivity">
         </activity>
@@ -45,6 +44,7 @@
             android:name="com.caipiao.ui.activity.GuideActivity"
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
+            android:theme="@style/SplashActivityTheme"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -101,7 +101,7 @@
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_OPENED" />
                 <action android:name="cn.jpush.android.intent.NOTIFICATION_CLICK_ACTION" />
                 <action android:name="cn.jpush.android.intent.CONNECTION" />
-                <category android:name="${applicationId}" />
+                <category android:name="com.caipiao" />
             </intent-filter>
         </receiver>
     </application>
