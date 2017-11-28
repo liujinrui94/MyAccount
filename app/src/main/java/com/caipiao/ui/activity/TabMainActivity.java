@@ -38,9 +38,9 @@ public class TabMainActivity extends BaseActivity {
     protected void initView() {
 //        fragments.add(new HomeFragment());
 
-        fragments.add(SSCFragment.newInstance(Constant.ZHANJI));
+        fragments.add(SSCFragment.newInstance("https://vipc.cn/ssq/calculator?fr=shareToWeixinTimeline"));
 //        fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.ZHANJI));
-        fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.DALETOU));
+        fragments.add(SmartRefreshLayoutFragment.newInstance("https://vipc.cn/ssq/calculator?fr=shareToWeixinTimeline"));
         fragments.add(SmartRefreshLayoutFragment.newInstance(Constant.DALETOU_ZIXUN));
         fragments.add(SSCFragment.newInstance(Constant.SHISHICAI));
         mTabFragmentAdapter = new TabFragmentAdapter(this, fragments, R.id.tab_content, radioGroup, 0);

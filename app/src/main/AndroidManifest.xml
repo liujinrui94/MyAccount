@@ -29,7 +29,7 @@
     <application
         android:name="com.caipiao.framework.base.AppApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/app_logo"
+        android:icon="@mipmap/bajia"
         android:label="测试"
         android:theme="@style/AppTheme">
         <activity android:name="com.caipiao.ui.activity.TabMainActivity">

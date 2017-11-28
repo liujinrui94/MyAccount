@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,6 +39,7 @@ public class SSCFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         URL = getArguments().getString("url");
+//        URL="https://vipc.cn/qxc/trend?fr=shareToWeixinTimeline";
     }
 
     @Nullable
@@ -52,10 +54,12 @@ public class SSCFragment extends Fragment {
         webview = (WebView) rootView.findViewById(R.id.convenience_payment_fragment);
         progressBar = (ProgressBar) rootView.findViewById(R.id.convenience_payment_progressbar);
         webview.loadUrl(URL);
+        webview.setVisibility(View.GONE);
         webview.getSettings().setSupportZoom(true);
         webview.getSettings().setBuiltInZoomControls(true);
         webview.getSettings().setUseWideViewPort(true);
         webview.getSettings().setJavaScriptEnabled(true);
+        webview.getSettings().setLoadWithOverviewMode(true);
         webview.setWebViewClient(client);
         webview.setWebChromeClient(chromeClient);
         webview.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
@@ -81,8 +85,23 @@ public class SSCFragment extends Fragment {
             return true;
         }
 
-
+        @Override
+        public void onPageFinished(WebView view, String url) {
+            super.onPageFinished(view, url);
+            //编写 javaScript方法
+            String javascript = "javascript:function hideOther() {"
+                    + "document.getElementsByClassName('vMod_topBar_right')[0].style.display = 'none';" +
+                    "}";
+            //创建方法
+            view.loadUrl(javascript);
+            view.loadUrl("javascript:hideOther();");
+            webview.setVisibility(View.VISIBLE);
+//            view.loadUrl("javascript:hideOther();");
+            //加载方法
+//            view.loadUrl("javascript:hideOther();");
+        }
     };
+
 
     private WebChromeClient chromeClient = new WebChromeClient() {
         @Override
